@@ -1,5 +1,8 @@
 import PyPDF2
 
+object_file = input("What file do you want to watermark?")
+watermark = input("What is the watermark file?")
+output = input("What do you want it to be saved as?")
 
 def insert_watermark(object_pdf, wtr_pdf, output_pdf):
     object_reader = PyPDF2.PdfFileReader(object_pdf)
@@ -15,7 +18,8 @@ def insert_watermark(object_pdf, wtr_pdf, output_pdf):
     
     with open(output_pdf, "wb") as out:
         writer.write(out)
+        print("all done!")
 
 
 if __name__ == "__main__":
-    insert_watermark("super.pdf", "wtr.pdf", "watermarked.pdf")
+    insert_watermark(object_file, watermark, output)
